@@ -1,3 +1,5 @@
+#!/usr/bin/python3.4
+
 from detect_devices import check_for_mac_address
 import time, subprocess, datetime
 
