@@ -1,6 +1,6 @@
 #!/usr/bin/python3.4
 
-from detect_devices import check_for_mac_address
+from detect_devices import check_for_mac_address, check_for_mac_addresses
 from status import Status
 import time, subprocess, datetime, logging
 
@@ -9,7 +9,8 @@ logging.basicConfig(filename='/tmp/auto_lights.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 logger=logging.getLogger(__name__)
 
-MAC_ADDRESS = 'your mac address here'
+with open('/home/pi/mac_addresses.txt') as f:
+    MAC_ADDRESSES = f.readlines()
 
 status = Status()
 
@@ -17,7 +18,7 @@ while True:
     try:
         time.sleep(30)
 
-        if check_for_mac_address(MAC_ADDRESS) and datetime.datetime.now().hour > 9:
+        if check_for_mac_addresses(MAC_ADDRESSES) and datetime.datetime.now().hour > 9:
             if status.isAway():
                 logger.log(logging.DEBUG, 'Lights powered up and set to home mode')
                 subprocess.call(['./power_up_lights.py'])
