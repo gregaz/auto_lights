@@ -26,7 +26,7 @@ def get_ips_for_mac_addresses(mac_addresses):
 
 def check_for_mac_addresses(mac_addresses):
     mac_ip_dict = get_ips_for_mac_addresses(mac_addresses)
-    return any(mac_address in mac_ip_dict for mac_address in mac_addresses)
+    return any(mac_address.lower() in mac_ip_dict for mac_address in mac_addresses)
 
 def check_for_mac_address(mac_address):
     check_for_mac_addresses([mac_address])
