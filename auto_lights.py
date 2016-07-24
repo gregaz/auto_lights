@@ -9,6 +9,8 @@ logging.basicConfig(filename='/tmp/auto_lights.log', level=logging.DEBUG,
                     format='%(asctime)s %(levelname)s %(name)s %(message)s')
 logger=logging.getLogger(__name__)
 
+logger.log(logging.DEBUG, 'Started script')
+
 with open('/home/pi/mac_addresses.txt') as f:
     MAC_ADDRESSES = f.readlines()
 
