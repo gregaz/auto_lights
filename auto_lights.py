@@ -6,7 +6,7 @@ import time, subprocess, datetime, logging
 
 
 logging.basicConfig(filename='/tmp/auto_lights.log', level=logging.DEBUG,
-                    format='%(asctime)s %(levelname)s %(name)s %(message)s')
+                    format='%(asctime)s %(process)d %(levelname)s %(name)s %(message)s')
 logger=logging.getLogger(__name__)
 
 logger.log(logging.DEBUG, 'Started script')
