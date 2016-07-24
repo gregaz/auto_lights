@@ -32,7 +32,8 @@ while True:
                 status.setHome()
         else:
             if status.isHome():
-                logger.log(logging.DEBUG, 'Went to away mode')
+                logger.log(logging.DEBUG, 'Lights powered down and went to away mode')
+                subprocess.call(['./power_down_lights.py'])
                 status.setAway()
     except Exception as e:
         logger.error(e)
