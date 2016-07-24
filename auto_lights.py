@@ -14,6 +14,9 @@ logger.log(logging.DEBUG, 'Started script')
 with open('/home/pi/mac_addresses.txt') as f:
     MAC_ADDRESSES = f.readlines()
 
+for MAC_ADDRESS in MAC_ADDRESSES:
+    logger.log(logging.DEBUG, 'Registered mac address as phone: ' + MAC_ADDRESS)
+
 status = Status()
 
 while True:
