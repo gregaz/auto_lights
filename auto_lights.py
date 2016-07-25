@@ -23,17 +23,18 @@ status = Status()
 
 while True:
     try:
-        time.sleep(30)
+        time.sleep(15)
 
-        if check_for_mac_addresses(MAC_ADDRESSES) and datetime.datetime.now().hour > 9:
-            if status.isAway():
-                logger.log(logging.DEBUG, 'Lights powered up and set to home mode')
-                subprocess.call(['./power_up_lights.py'])
-                status.setHome()
-        else:
-            if status.isHome():
-                logger.log(logging.DEBUG, 'Lights powered down and went to away mode')
-                subprocess.call(['./power_down_lights.py'])
-                status.setAway()
+        if datetime.datetime.now().hour > 9:
+            if check_for_mac_addresses(MAC_ADDRESSES):
+                if status.isAway():
+                    logger.log(logging.DEBUG, 'Lights powered up and set to home mode')
+                    subprocess.call(['./power_up_lights.py'])
+                    status.setHome()
+            else:
+                if status.isHome():
+                    logger.log(logging.DEBUG, 'Lights powered down and went to away mode')
+                    subprocess.call(['./power_down_lights.py'])
+                    status.setAway()
     except Exception as e:
         logger.error(e)
