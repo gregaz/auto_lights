@@ -1,15 +1,28 @@
+import datetime
+
 class Status:
     currentStatus = 1
-    home, away = 0, 1
+    home, away, leaving = 0, 1, 2
+    departure_time = datetime.datetime.now()
 
-    def isHome(self):
+    def is_home(self):
         return self.currentStatus == self.home
 
-    def isAway(self):
+    def is_away(self):
         return self.currentStatus == self.away
 
-    def setHome(self):
+    def is_leaving(self):
+        return self.currentStatus == self.leaving
+
+    def set_home(self):
         self.currentStatus = self.home
 
-    def setAway(self):
+    def set_away(self):
         self.currentStatus = self.away
+
+    def set_leaving(self):
+        self.currentStatus = self.leaving
+        self.set_departure_time_to_now()
+
+    def set_departure_time_to_now(self):
+        self.departure_time = datetime.datetime.now()
