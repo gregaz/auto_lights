@@ -6,6 +6,12 @@ A quick python script that will automatically turn your LIFX lightbulb on when y
 ```
 git clone https://github.com/gregaz/auto_lights.git
 ```
+
+2. Install lifxlan:
+```
+sudo pip3 install lifxlan
+```
+
 2. Complete the required fields in config.py. Example:
 ```python
 #required

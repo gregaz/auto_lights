@@ -2,8 +2,9 @@
 
 from detect_devices import check_for_mac_addresses
 from status import Status
-import time, subprocess, datetime, logging
+import time, datetime, logging
 from config import *
+from power_lights import power_lights
 
 
 logging.basicConfig(filename=log_file, level=logging.DEBUG,
@@ -25,7 +26,7 @@ while True:
             if check_for_mac_addresses(phone_macs):
                 if status.is_away():
                     logger.log(logging.DEBUG, 'Lights powered up and set to home mode')
-                    subprocess.call(['./power_lights.py', 'on'])
+                    power_lights('on')
                     status.set_home()
                 elif status.is_leaving():
                     logger.log(logging.DEBUG, 'Returned before full shutoff delay time, set back to home mode')
@@ -36,7 +37,7 @@ while True:
                     status.set_leaving()
                 elif status.is_leaving() and abs((status.departure_time - datetime.datetime.now()).total_seconds()) > shutoff_delay:
                     logger.log(logging.DEBUG, 'Lights powered down and went to away mode')
-                    subprocess.call(['./power_lights.py', 'off'])
+                    power_lights('off')
                     status.set_away()
 
     except Exception as e:
