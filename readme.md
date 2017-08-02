@@ -33,5 +33,5 @@ I have had this running on my raspberry PI zero for two phones and two LIFX bulb
 
 ### Utility Scripts ###
 Some scripts that can be useful:
-get_ip_for_mac_address(mac_address) - useful for finding your raspberry pi's ip address on your lan when you know it's MAC address.
-check_for_mac_addresses(mac_addresses) - useful to determine if certain devices are on your lan network.
+1. get_ip_for_mac_address(mac_address) - useful for finding your raspberry pi's ip address on your lan when you know it's MAC address.
+2. check_for_mac_addresses(mac_addresses) - useful to determine if certain devices are on your lan network.
