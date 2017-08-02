@@ -20,7 +20,12 @@ light_labels_to_power_on = ['living_room']
 phone_macs = ['2E-D0-10-48-44-91', '0B-53-FD-DF-8A-62' ]
 ```
 
-3. Run the auto_lights.py script:
+3. Change permissions on the script in order to run it:
+```
+chmod 777 auto_lights.py
+```
+
+4. Run the auto_lights.py script:
 ```
 nohup ./auto_lights.py &
 ```
