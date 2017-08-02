@@ -15,8 +15,9 @@ phone_macs = ['2E-D0-10-48-44-91', '0B-53-FD-DF-8A-62' ]
 ```
 
 3. Run the auto_lights.py script:
+```
 nohup ./auto_lights.py &
-
+```
 
 ### How it works ###
 This script continuosly polls your home wifi network for your phone's MAC address. If it finds your phone connected/disconnected to your home network, it knows that you are home/away and sends a command to your LIFX lightbulbs to turn on/off.
